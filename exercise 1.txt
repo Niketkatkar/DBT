@@ -1,0 +1,104 @@
+1.CREATE TABLE SEMP(
+Empno char(4),
+Empname char(20),
+Basic float(9,2),
+Deptno char(2),
+Depthead char(4));
+SHOW SEMP;
+
+
+2.CREATE TABLE SDEPT
+   (
+	Deptno char(2),
+	Deptname char(15)
+   );
+ SHOW SDEPT;
+
+
+3.INSERT INTO SDEPT(Deptno,Deptname)
+   values('10','development'),
+         ('20','training');
+ SELECT * FROM SDEPT;
+
+4.INSERT INTO SEMP(Empno, Empname, Basic,Deptno,Depthead)
+VALUES('0001','SUNIL',6000,'10',null),
+	             ('0002','HIREN',8000,'20',null),
+               ('0003','ALI',4000,'10',0001),
+	             ('0004','GEORGE',6000,null,'0002');
+ 
+SELECT * FROM SEMP;
+5. 
+
+CREATE TABLE SUPPLIER (
+`S#` char(4),
+Sname varchar(20),
+status int(4),
+city varchar(20)
+);
+SHOW SUPPLIER;
+
+CREATE TABLE PARTS(
+`P#` char(4),
+Pname varchar(20),
+Color varchar(20),
+Weight float(5,2),
+City varchar(20)
+);
+SHOW PARTS;
+
+CREATE TABLE PROJECTS (
+`J#` char(4),
+Jname varchar(20),
+City varchar(20)
+);
+SHOW PROJECTS;
+
+CREATE TABLE SUPPLIER_PARTS_PROJECTS(
+`S#` char(4),
+`P#` char(4),
+`j#` char(4),
+Qty int(10)
+);
+SHOW SUPPLIER_PARTS_PROJECTGS;
+
+INSERT INTO SUPPLIER
+VALUES ('S1','magic',10,'london'),
+                ( 'S2',' luck',20,'paris'),
+                ('S3','Rick',30,'Athens'),
+                ('S4','indigo',40,'london');
+
+
+
+INSERT INTO PARTS
+VALUES ('P1','brig','red',20,'london'),
+                ( 'P2',' luck','blue',10.2,'paris'),
+                ('P3','Rick','green',30.5,'Athens'),
+                ('P4','indigo','yellow',34.22,'london');
+
+
+  INSERT INTO PROJECTS
+VALUES ('J1','HUGH','london'),
+                ( 'J2','ICON','paris'),
+                ('J3','TICK','Athens'),
+                ('J4','POSI','london');   
+
+INSERT INTO SUPPLIER_PARTS_PROJECTS
+VALUES ('S1','P1','J1',100),
+                ( 'S2',' P2','J2',200),
+                ('S3','P3','J3',300),
+                ('S4','P4','J4',400);
+
+SELECT * FROM SUPPLIER;
+
+6. SELECT `S#`,Sname FROM SUPPLIER;
+
+7. SELECT Pname,Color FROM PARTS where City='London';
+
+8. SELECT * from SUPPLIER where City='London';
+
+9. SELECT * from SUPPLIER WHERE City='Paris' or City='Athens';
+
+10. SELECT * from PROJECTS WHERE City='Athens';
+
+
+
