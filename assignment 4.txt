@@ -1,0 +1,9 @@
+1.SELECT Onum,Amt,Odate FROM Orders; 
+
+2.SELECT * from customers WHERE Snum=1001;
+
+3.select city, sname,snum,comm FROM Salespeople;
+
+4. SELECT rating FROM customers WHERE city='san jose';
+
+5. SELECT snum from orders GROUP BY Snum ORDER BY Snum ;
