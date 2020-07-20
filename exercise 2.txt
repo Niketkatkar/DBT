@@ -1,0 +1,33 @@
+1.Display the Supplier table in the descending order of CITY.
+
+- SELECT * FROM s ORDER BY city desc; 
+
+
+2.Display the Part Table in the ascending order of CITY and within the city in the ascending order of Part names. 
+
+- SELECT * FROM p ORDER BY city,pname; 
+
+
+3.Display all the Suppliers with a status between 10 and 20. 
+
+- SELECT * FROM s WHERE status BETWEEN 10 AND 20; 
+
+
+4.Display all the Parts and their Weight, which are not in the range of 10 and 15.
+
+- SELECT * FROM s WHERE status NOT BETWEEN 10 AND 20; 
+
+
+5. Display all the Part names starting with the letter ‘S’. 
+
+- SELECT pname FROM p WHERE pname LIKE "S%";
+
+
+6. Display all the Suppliers, belonging to cities starting with the letter ‘L’.
+
+- SELECT * FROM s WHERE city LIKE "L%"; 
+
+
+7. Display all the Projects, with the third letter in JNAME as ‘n’. 
+
+- SELECT * FROM j WHERE jname LIKE "__n%";
