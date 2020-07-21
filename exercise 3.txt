@@ -1,0 +1,137 @@
+1. Select Sname from supplier Where ascii(upper(substr(Sname,1,1)))=ascii(Sname);
+ 
++-------+ 
+| Sname | 
++-------+ 
+| Jay       | 
+| Anne    |
++-------+ 
+
+
+2. Select upper(Sname) from supplier; 
+
++--------------+ 
+| upper(Sname) | 
++--------------+ 
+| BOB                   |
+ | SHINCHAN      |
+ | OSWALD         | 
+| BOB                  |
+ | SHINCHAN     |
+ | OSWALD         | 
+| BOB                 | 
+| SHINCHAN     |
+ | OSWALD       | 
+| JAY                 |
+ | ANNE             |  
++--------------+ 
+
+
+3. Select lower(Sname) from supplier; 
+
++--------------+
+ | lower(Sname) | 
++--------------+
+ | bob         | 
+| shinchan | 
+| oswald    | 
+| bob          | 
+| shinchan |
+ | oswald   |
+ | bob         | 
+| shinchan |
+ | oswald   | 
+| jay           |
+ | anne      |
+ +--------------+ 
+
+
+4. Select lpad(Sname,25,' ')from supplier;
+
++---------------------------+
+ | lpad(Sname,25,' ') | 
++---------------------------+
+ | bob                         |
+ | shinchan                | 
+| oswald                    |
+ | bob                         |
+ | shinchan                | 
+| oswald                    | 
+| bob                          |
+ | shinchan                | 
+| oswald                    | 
+| Jay                          |
+ | Anne                      | 
++---------------------------+ 
+
+
+5. select replace(Sname,'la','ro')from supplier;
+
+
+ +--------------------------+ 
+| replace(Sname,'la','ro') |
+ +--------------------------+
+ | bob                               | 
+| shinchan                       |
+ | oswald                         | 
+| bob                                |
+ | shinchan                      |
+ | oswald                         |
+ | bob                               |
+ | shinchan                      | 
+| oswald                          | 
+| Jay                                |
+ | Anne                            | 
++--------------------------+ 
+
+6. select REPLACE(REPLACE(Sname,'r','a'),'a','o')from supplier;
+
+ +-----------------------------------------+ | REPLACE(REPLACE(Sname,'r','a'),'a','o') | +-----------------------------------------+
+ | bob                              |
+| shinchon                      | 
+| oswold                         |
+ | bob                              | 
+| shinchon                      | 
+| oswold                         |
+ | bob                              |
+ | shinchon                    | 
+| oswold                        |
+ | Joy                              |
+ | Anne                           | 
++-----------------------------------------+
+
+ 7. Select Sname,length(Sname) as length from supplier;
+ +----------+--------+ 
+| Sname | length |
+ +----------+--------+ 
+| bob           | 3 |
+ | shinchan | 8 | 
+| oswald     | 6 |
+ | bob         | 3 | 
+| shinchan | 8 | 
+| oswald     | 6 |
+ | bob          | 3 |
+ | shinchan | 8 |
+ | oswald    | 6 | 
+| Jay           | 3 |
+ | Anne      | 4 | 
++----------+--------+ 
+
+8. Select * from supplier -> Where soundex(Sname) =soundex ('bobbb'); 
+
++------+-------+--------+--------+ 
+| S# | Sname | Status | City | 
++------+-------+--------+--------+
+ | S1 | bob | 25 | london | 
+| S1 | bob | 25 | london |
+ | S1 | bob | 25 | london | 
++------+-------+--------+--------+
+
+
+ 10. SELECT DAYNAME("2020-07-20");
+
+ +-----------------------+
+ | DAYNAME("2020-07-20") | 
++-----------------------+
+ | Monday | 
++-----------------------+ 
