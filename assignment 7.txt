@@ -1,0 +1,57 @@
+
+1. SELECT count(onum) total_order FROM orders WHERE odate LIKE '1990-10-03%'; 
++-------------+
+ | total_order |
+ +-------------+
+ | 5                 | 
++-------------+ 
+
+
+2.SELECT count(cname) empty_city FROM customers WHERE cname IS NOT NULL; 
+
++------------+ 
+| empty_city | 
++------------+
+ | 7                 | 
++------------+ 
+
+
+3.Select cnum, min(amt) from orders group by cnum;
+
+ +------+----------+ 
+| cnum | min(amt) | 
++------+----------+
+ | 2008 | 18.69       | 
+| 2001 | 767.19     |
+ | 2007 | 1900.10  | 
+| 2003 | 5160.45   | 
+| 2002 | 1713.23   | 
+| 2004 | 75.75       | 
+| 2006 | 4723.00   |
+ +------+----------+ 
+
+
+4.SELECT * FROM customers WHERE cname LIKE 'G%' ORDER BY cname;
+
+ +------+----------+--------+--------+------+ 
+| Cnum | Cname | City | Rating | Snum | +------+----------+--------+--------+------+
+ | 2002 | Giovanni | Rome | 200 | 1003 |
+ | 2004 | Grass | Berlin | 300 | 1002      | +------+----------+--------+--------+------+ 
+
+
+5.SELECT max(rating) "highest rating" FROM customers;
+
+ +----------------+ 
+| highest rating | 
++----------------+ 
+| 300                   | 
++----------------+ 
+
+
+6.SELECT count(odate)||' SALES PERSON REGISTREDDON' "TOTAL", odate FROM orders GROUP BY odate;
+
+ +----------------------------------------------------+------------+ 
+| count(odate)|
+|' SALES PERSON REGISTREDDON' "TOTAL" | odate | +----------------------------------------------------+------------+
+ | 1 | 1990-10-03 | | 1 | 1990-10-04 |
+ | 1 | 1990-10-05 | | 1 | 1990-10-06 | +----------------------------------------------------+------------+
