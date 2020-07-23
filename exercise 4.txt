@@ -1,0 +1,100 @@
+1. select min(status) from suplier; 
+
++-------------+ 
+| min(status) | 
++-------------+
+ | 10 |
+ +-------------+ 
+
+2. select max(weight) from p; 
+
++-------------+
+ | max(weight) | 
++-------------+ 
+| 20 | 
++-------------+ 
+
+3. select avg(weight) from parts; 
+
++-------------+ 
+| avg(weight) | 
++-------------+ 
+| 15.6667 | 
++-------------+ 
+
+4. select sum(qty) from SUPPLIER_PARTS_PROJECT where `p#`='p1'; 
+
++----------+ 
+| sum(qty) | 
++----------+ 
+| 400 | 
++----------+ 
+
+5. select `p#`,sum(qty) from SUPPLIER_PARTS_PROJECT group by `p#`;
+
+ +------+----------+ 
+| p# | sum(qty) | 
++------+----------+ 
+| P1 | 400 | 
+| P2 | 724 | 
+| P3 | 250 | 
++------+----------+
+
+ 6. select `p#`,avg(qty) from SUPPLIER_PARTS_PROJECT group by `p#`;
+
+ +------+----------+ 
+| p# | avg(qty) | 
++------+----------+ 
+| P1 | 400.0000 | 
+| P2 | 724.0000 | 
+| P3 | 250.0000 | 
++------+----------+ 
+
+7. select `p#`,max(qty) from SUPPLIER_PARTS_PROJECT where qty >800 group by `p#`;
+
+Empty set
+
+ 8. select status,count(status) from SUPPLIER group by status; 
++--------+---------------+ 
+| status | count(status) | 
++--------+---------------+ 
+| 25 | 3 | 
+| 22 | 3 | 
+| 12 | 3 | 
+| 10 | 1 | 
+| 28 | 1 | 
++--------+---------------+ 
+
+10. COUNT(Status):
+
+COUNT(Status) evaluates the expression for each row in a set and returns the number of rows having a non-null values. 	 
+
+COUNT(*):
+
+ COUNT(*) counts the number of items in a set. It includes NULL and duplicate values. It returns total number of rows in the table.
+
+ 11. 
+
+select Sname,case 
+      when status=10 then 'ten' 
+      when status=20 then 'twenty' 
+      when status=30 then 'thirty' 
+      when status=40 then 'forty' 
+      when status=50 then 'fifty' 
+      when status=70 then 'seventy' else 'others' END  status from supplier; 
+
++----------+--------+
+ | Sname | status | 
++----------+--------+ 
+| bob | others.         | 
+| shinchan | others | 
+| oswald | others.   | 
+| bob | others          | 
+| shinchan | others | 
+| oswald | others    | 
+| bob | others          | 
+| shinchan | others |
+ | oswald | others   |
+ | Jay | ten               | 
+| Anne | others       |
+ +----------+--------+ 
