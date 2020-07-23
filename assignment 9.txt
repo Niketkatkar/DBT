@@ -1,0 +1,65 @@
+1. SELECT onum, cname FROM orders o, customers c WHERE c.cnum=o.cnum ; 
+
+
++------+----------+
+ | onum | cname |
+ +------+----------+ 
+| 3001 | Cisneros | 
+| 3003 | Hoffman |
+ | 3002 | Pereira   |
+ | 3005 | Liu           |
+ | 3006 | Cisneros |
+ | 3009 | Giovanni | 
+| 3007 | Grass       | 
+| 3008 | Clemens |
+ | 3010 | Grass     | 
+| 3011 | Clemens |
+ +------+----------+
+
+ 2. SELECT sname,cname,onum FROM orders o,customers c, salespeople s WHERE o.snum=c.snum AND o.snum=s.snum;
+
+ +---------+----------+------+ 
+| sname | cname | onum | 
++---------+----------+------+
+ | Rifkin | Cisneros | 3001   | 
+| Peel | Hoffman | 3003      | 
+| Peel | Clemens | 3003      | 
+| Motika | Pereira | 3002     | 
+| Serres | Liu | 3005             | 
+| Serres | Grass | 3005        | 
+| Rifkin | Cisneros | 3006    | 
+| Axelrod | Giovanni | 3009 | 
+| Serres | Liu | 3007            | 
+| Serres | Grass | 3007       | 
+| Peel | Hoffman | 3008     |
+ | Peel | Clemens | 3008    |
+ | Serres | Liu | 3010          | 
+| Serres | Grass | 3010      | 
+| Peel | Hoffman | 3011    |
+ | Peel | Clemens | 3011   | 
++---------+----------+------+
+
+ 3. SELECT cname,s.snum, comm*100 "RATE OF COMM." FROM customers c,salespeople s WHERE c.snum=s.snum AND comm>.12 ;
+
+ +----------+------+---------------+
+ | cname | snum | RATE OF COMM. | +----------+------+---------------+ 
+| Liu | 1002 | 13.00.           | 
+| Grass | 1002 | 13.00.      |
+ | Cisneros | 1007 | 15.00 |
+ +----------+------+---------------+ 
+
+4.SELECT amt,comm FROM salespeople JOIN customers using(snum) JOIN orders using(snum) WHERE rating>100; 
+
++---------+------+ 
+| amt | comm |
+ +---------+------+ 
+| 18.69 | 0.15      | 
+| 5160.45 | 0.13 | 
+| 5160.45 | 0.13 | 
+| 1098.16 | 0.15 | 
+| 1713.23 | 0.10 | 
+| 75.75 | 0.13     | 
+| 75.75 | 0.13     |
+ | 1309.95 | 0.13 | 
+| 1309.95 | 0.13  | 
++---------+------+

@@ -1,0 +1,17 @@
+
+1. SELECT m.sname,n.sname,m.city FROM salespeople m,salespeople n WHERE m.city=n.city AND m.sname<n.sname;
+ +--------+-------+--------+
+ | sname | sname | city | 
++--------+-------+--------+ 
+| Motika | Peel | London | 
++--------+-------+--------+ 
+
+
+2. SELECT cname,city FROM customers WHERE rating = (SELECT rating FROM customers WHERE cname='hoffman'); 
++---------+--------+ 
+| cname | city | 
++---------+--------+ 
+| Hoffman | London | 
+| Clemens | London |
+ | Pereira | Rome | 
++---------+--------+
