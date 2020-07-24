@@ -1,0 +1,24 @@
+1.SELECT onum "ALL ORDERS", cnum FROM orders WHERE cnum= (SELECT cnum FROM customers WHERE cname='cisneros'); 
+
++------------+------+ 
+| ALL ORDERS | cnum | 
++------------+------+ 
+| 3001 | 2008 | 
+| 3006 | 2008 | 
++------------+------+ 
+
+2.SELECT cname,rating FROM customers WHERE cnum IN (SELECT cnum FROM orders WHERE amt >(SELECT avg(amt) FROM orders)); 
++---------+--------+ 
+| cname | rating | 
++---------+--------+ 
+| Liu | 200 | 
+| Clemens | 100 | 
++---------+--------+ 
+
+3.SELECT sum(amt) FROM orders GROUP BY snum HAVING sum(amt)> (SELECT max(amt) FROM orders); 
+
++----------+ 
+| sum(amt) | 
++----------+ 
+| 15382.07 | 
++----------+
