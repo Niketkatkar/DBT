@@ -1,0 +1,30 @@
+1.SELECT cname,city,'HIGH RATING' RATING FROM customers WHERE rating>200 UNION SELECT cname,city,'LOW RATING' RATING FROM customers WHERE rating <=200; 
++----------+----------+-------------+
+ | cname | city | RATING | 
++----------+----------+-------------+
+ | Grass | Berlin | HIGH RATING | 
+| Cisneros | San Jose | HIGH RATING |
+ | Hoffman | London | LOW RATING | 
+| Giovanni | Rome | LOW RATING | 
+| Liu | San Jose | LOW RATING | 
+| Clemens | London | LOW RATING |
+ | Pereira | Rome | LOW RATING | +----------+----------+-------------+
+
+ 2.SELECT sname,snum,cname FROM salespeople JOIN customers using(snum) WHERE snum IN(SELECT snum FROM customers GROUP BY snumHAVING count(snum)>1) ORDER BY sname,cname; 
+
++--------+------+---------+ 
+| sname | snum | cname | 
++--------+------+---------+
+ | Peel | 1001 | Clemens | 
+| Peel | 1001 | Hoffman |
+ | Serres | 1002 | Grass |
+ | Serres | 1002 | Liu | 
++--------+------+---------+
+
+ 3.SELECT snum FROM salespeople WHERE city='san jose' UNION SELECT DISTINCT snum FROM orders WHERE snum IN (SELECT snum FROM orders WHERE odate LIKE '10-03%'); 
+
++------+ 
+| snum | 
++------+
+ | 1002 |
+ +------+
