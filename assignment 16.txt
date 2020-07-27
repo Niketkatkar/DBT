@@ -1,0 +1,18 @@
+1.CREATE INDEX d_order ON orders(odate);
+
+ 2.DESCRIBE orders;
+
+ +-------+------------+------+-----+---------+-------+
+ | Field | Type | Null | Key | Default | Extra | +-------+------------+------+-----+---------+-------+
+ | Onum | int | YES | | NULL | | 
+| Amt | float(7,2) | YES | | NULL | | 
+| Odate | date | YES | MUL | NULL | | 
+| Cnum | int | YES | | NULL | | 
+| Snum | int | YES | | NULL | | +-------+------------+------+-----+---------+-------+ 
+
+create unique index orders_onum on orders(onum);
+
+ 3.CREATE INDEX I_DATE ON orders(odate); 
+
+
+ 4.alter table customer modify primary key (Rating);
