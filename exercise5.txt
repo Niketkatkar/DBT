@@ -1,0 +1,126 @@
+1. Display the Supplier name and the Quantity sold. 
+
+select sname, qty from SUPPLIER_PARTS_PROJECT , supplier s 	where SUPPLIER_PARTS_PROJECT.`s#`= s.`s#`; 
+
++----------+------+ 
+| sname | qty | 
++----------+------+
+ | bob | 400 | 
+| shinchan | 724 | 
+| oswald | 250 | 
+| bob | 400 | 
+| shinchan | 724 | 
+| oswald | 250 |
+ | bob | 400 | 
+| shinchan | 724 |
+ | oswald | 250 | 
++----------+------+ 
+
+2. Display the Part name and Quantity sold. 
+
+select pname, qty from SUPPLIER_PARTS_PROJECT , parts p 	where SUPPLIER_PARTS_PROJECT.`p#`= p.`p#`;
+
+ +-------+------+ 
+| pname | qty | 
++-------+------+ 
+| koko | 400 | 
+| kittu | 724 | 
+| jiya | 250 | 
++-------+------+ 
+
+3. Display the Project name and Quantity sold. 
+
+
+select jname, qty from SUPPLIER_PARTS_PROJECT , projects p 	where SUPPLIER_PARTS_PROJECT.`j#`= p.`j#`;
+
+ +--------+------+ 
+| jname | qty | 
++--------+------+ |
+ Noddy | 400 | 
+| Noddy | 250 | 
+| Nobita | 724 | 
++--------+------+ 
+
+
+4. Display the Supplier name, Part name, Project name and Quantity sold 	 
+
+
+select supplier.sname, pname, jname ,qty from SUPPLIER_PARTS_PROJECT , parts ,projects,supplier 	where SUPPLIER_PARTS_PROJECT.`s#`= supplier.`s#` and SUPPLIER_PARTS_PROJECT.`p#`= parts.`p#` and SUPPLIER_PARTS_PROJECT.`j#`= projects.`j#`; 
+
+
++----------+-------+--------+------+ 
+| sname | pname | jname | qty | +----------+-------+--------+------+ 
+| bob | koko | Noddy | 400 | 
+| shinchan | kittu | Nobita | 724 |
+ | oswald | jiya | Noddy | 250 | 
+| bob | koko | Noddy | 400 | 
+| shinchan | kittu | Nobita | 724 | 
+| oswald | jiya | Noddy | 250 | 
+| bob | koko | Noddy | 400 | 
+| shinchan | kittu | Nobita | 724 | 
+| oswald | jiya | Noddy | 250 | +----------+-------+--------+------+ 
+
+5. Display the Supplier name, Supplying Parts to a Project in the same City. 	
+
+select sname,pname from supplier,parts,projects 	where supplier.city = projects.city group by sname; 
+
+
+6. Display the Part name that is ‘Red’ is color, and the Quantity sold. 	
+
+
+select pname, qty from SUPPLIER_PARTS_PROJECT , parts p 	where SUPPLIER_PARTS_PROJECT.`p#`= p.`p#` and color = 'red'; 
+
++-------+------+ 
+| pname | qty | 
++-------+------+ 
+| jiya | 250 | 
++-------+------+ 
+
+
+7. Display all the Quantity sold by Suppliers with the Status = 20. 	
+
+
+select qty from SUPPLIER_PARTS_PROJECT,supplier where supplier.`s#`=SUPPLIER_PARTS_PROJECT.`s#` and Status = 20; 
+
+
+ 8. Display all the Parts and Quantity with a Weight > 14. 
+
+
+	select pname, qty from SUPPLIER_PARTS_PROJECT , parts p 	where SUPPLIER_PARTS_PROJECT.`p#`= p.`p#` and Weight > 14; 
+
++-------+------+ 
+| pname | qty | 
++-------+------+ 
+| koko | 400 | 
++-------+------+ 
+
+
+9. Display all the Project names and City, which has bought more than 500 Parts. 	
+
+
+select jname,city from projects, SUPPLIER_PARTS_PROJECT 	where projects.`j#`=SUPPLIER_PARTS_PROJECT.`j#` and SUPPLIER_PARTS_PROJECT.qty>500; 
+
++--------+-------+ 
+| jname | city | 
++--------+-------+ 
+| Nobita | Paris | 
++--------+-------+ 
+
+
+10. Display all the Part names and Quantity sold that have a Weight less than 15. 	
+
+select pname, qty from SUPPLIER_PARTS_PROJECT , parts p 	where SUPPLIER_PARTS_PROJECT.`p#`= p.`p#` and Weight < 15; 
+
+
++-------+------+ 
+| pname | qty | 
++-------+------+ 
+| kittu | 724 | 
+| jiya | 250 | 
++-------+------+ 
+
+
+11. Display all the Employee names and the name of their Managers. 	 
+
+
+select distinct a.ename, b.mrt from emp a , emp b 	where a.mrg = b.mrg; 
