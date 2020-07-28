@@ -1,0 +1,60 @@
+1. Display all the Suppliers with the same Status as the supplier, ‘CLARK’. 	
+
+select sname , status 	from supplier 	where status = (select status from supplier where sname = 'CLARK');
+
+ 2. Display all the Employees in the same department as the employee ‘MILLER’ 
+
+
+	select * from semp; 	select * from semp 	where deptno = ( select deptno from semp where empname = 'Miller'); 
+
+
+3. Display all the Parts which have more Weight than all the Red parts. 
+
+select * from parts 	where weight > ( select weight from parts where color = 'red');
+
+ 4. Display all the Projects going on in the same city as the project ‘TAPE’. 	
+
+select * from projects 	where city = (select city from projects where jname = 'TAPE'); 
+
+
+5. Display all the Parts with Weight less than all the Green parts. 	
+
+
+select * from parts 	where weight < (select weight from parts where color = 'green'); 
+
+
+6. Display the name of the Supplier who has sold the maximum Quantity (in one sale). 	
+
+
+select s.sname 	from supplier s, SUPPLIER_PARTS_PROJECT 	where s.`s#`=SUPPLIER_PARTS_PROJECT.`s#` and qty = (select max(qty) from SUPPLIER_PARTS_PROJECT);
+
+ +----------+ 
+| sname | 
++----------+ 
+| shinchan | 
+| shinchan | 
+| shinchan | 
++----------+ 
+
+7. Display the name of the Employee with the minimum Salary. 	
+
+
+select empname from semp 	where sal = (select min(sal) from semp); 
+
+8. Display the name of the Supplier who has sold the maximum overall Quantity (sum of Sales). 	
+
+
+select supplier.sname , sum(SUPPLIER_PARTS_PROJECT.qty) 	from supplier, SUPPLIER_PARTS_PROJECT 	where SUPPLIER_PARTS_PROJECT.`S#`=supplier.`S#` 	group by sname; 
+
++----------+---------------------------------+ 
+| sname | sum(SUPPLIER_PARTS_PROJECT.qty) | +----------+---------------------------------+ 
+| bob | 1200 | 
+| shinchan | 2172 | 
+| oswald | 750 | 
++----------+---------------------------------+ 
+
+
+9. Display the name of the Department with the maximum number of Employees. 	
+
+
+select sdept.deptname, count(semp.deptno) 	from semp, sdept 	where semp.deptno = sdept.deptno 	group by semp.deptno 	order by employees desc limit 1;
