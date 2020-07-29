@@ -1,0 +1,12 @@
+1.
+
+create table CityOrders as select o.onum,o.amt,o.snum,c.cnum,c.city from orders o,customers c 
+where o.cnum=c.cnum; 	 
+Alter table CITYORDERS add PRIMARY KEY (Onum);
+
+
+2.
+Alter table cityorders add column prev int; 
+Alter table cityorders ADD constraint FK_city foreign key(prev) references orders(onum); 
+Alter table customers modify cnum int(4) NOT NULL; Alter table customers add primary key(cnum); 
+Alter table cityorders add constraint cnum_fk foreign key(cnum) references customers(cnum);
