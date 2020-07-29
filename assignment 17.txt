@@ -1,0 +1,19 @@
+1.create table orders1
+( Onum int(12), 
+Cnum int(12), 
+Snum int(12), 
+Check (Onum!=Cnum and Onum !=Snum and cNUM!=Snum)
+);
+
+
+ 2.create table salespeople1 
+(Snum int(12) primary key check(status between 'A' and 'M'),
+Comm float(3,2) default 0.10 ); 
+
+
+3.create table orders2
+( Snum int(12) NOT NULL, 
+Cnum int(12) NOT NULL, 
+Onum int(12) NOT NULL, 
+Check (Cnum >Snum), 
+check(Onum >Cnum));
